@@ -23,6 +23,88 @@ Author : Belal Alshmalya
     clear: both;
 }
 
+.tbl-full {
+    width: 100%;
+}
+
+table tr th {
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+.tbl-30 {
+    width: 30%;
+}
+
+.btn {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember", sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+
+    color: white;
+}
+
+
+.btn:focus {
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    outline: 0;
+}
+
+table tr td {
+    padding: 1%;
+}
+
+/*.btn {*/
+/*    padding: 1%;*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    font-weight: bold;*/
+/*    !*border-radius: 25%;*!*/
+/*}*/
+
+.btn-primary {
+    background-color: #1e90ff;
+}
+
+.btn-primary:hover {
+    background-color: #3742fa;
+}
+
+.btn-secondary:hover {
+    background-color: #2ed573;
+
+}
+
+.btn-secondary {
+    background-color: #7bed9f;
+    color: black;
+}
+
+
+.btn-danger {
+    background-color: #eb4d4b;
+}
+
+.btn-danger:hover {
+    background-color: #ff7979;
+}
+
 /*Css for Menu*/
 .menu {
     border-bottom: 1px solid gray;
