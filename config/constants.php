@@ -1,6 +1,7 @@
 <?php
 session_start();
 const SITE_URL = 'https://food-order.test/';
+const ADMIN_URL = SITE_URL . 'admin/admin';
 const LOCALHOST = 'localhost';
 const DB_USERNAME = 'root';
 const DB_PASSWORD = '';

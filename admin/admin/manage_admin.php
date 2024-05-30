@@ -7,7 +7,27 @@
             <?php if (isset($_SESSION['add'])) {
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
-            } ?>
+            }
+
+            if (isset($_SESSION['delete'])) {
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
+
+            if (isset($_SESSION['update'])) {
+                echo $_SESSION['update'];
+                unset($_SESSION['update']);
+            }
+
+            if (isset($_SESSION['404'])) {
+                echo $_SESSION['404'];
+                unset($_SESSION['404']);
+            }
+            if (isset($_SESSION['change_password'])) {
+                echo $_SESSION['change_password'];
+                unset($_SESSION['change_password']);
+            }
+            ?>
             <br><br>
             <a class="btn btn-primary" href="../admin/add_admin.php"> Create new admin </a>
             <br><br>
@@ -25,18 +45,22 @@
                     $count = 1;
                     while ($row = mysqli_fetch_assoc($res)) {
 
-
+                        $id = $row['id'];
                         $full_name = $row['full_name'];
                         $username = $row['username'];
 
                         ?>
                         <tr>
-                            <td><?php echo  $count++ ?></td>
+                            <td><?php echo $count++ ?></td>
                             <td><?php echo $full_name ?></td>
                             <td><?php echo $username ?></td>
                             <td>
-                                <a href="#" class="btn btn-secondary"> Update</a>
-                                <a href="#" class="btn btn-danger"> Delete</a>
+                                <a href="<?php echo ADMIN_URL; ?>/change_password.php?id=<?php echo $id ?>"
+                                   class="btn btn-primary">Change Password</a>
+                                <a href="<?php echo ADMIN_URL; ?>/update_admin.php?id=<?php echo $id ?>"
+                                   class="btn btn-secondary"> Update</a>
+                                <a href="<?php echo ADMIN_URL; ?>/delete-admin.php?id=<?php echo $id ?>"
+                                   class="btn btn-danger"> Delete</a>
                             </td>
                         </tr>
                         <?php
