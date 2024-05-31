@@ -3,6 +3,11 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>Update Admin</h1>
+        <?php if (isset($_SESSION['unique'])) {
+            echo '<br>' . $_SESSION['unique'];
+            unset($_SESSION['unique']);
+        } ?>
+
         <?php
         $id = $_GET['id'];
         $sql = "SELECT * FROM tbl_admin WHERE id=$id";
@@ -50,20 +55,30 @@ if (isset($_POST['submit'])) {
     $full_name = $_POST['full_name'];
     $username = $_POST['username'];
     $id = $_POST['id'];
+//Check if Username is Exist
+    $check_user_name_sql = "SELECT * FROM tbl_admin WHERE username = '$username'";
+    $check_user_name_res = mysqli_query($conn, $check_user_name_sql) or die(mysqli_error());
+
+    if ($check_user_name_res and mysqli_num_rows($check_user_name_res) > 1) {
+        $_SESSION['unique'] = "<div class='error'> Username Must Be Unique, Try another one </div>";
+        header('location');
+    } else {
+
 
 //    Sql query
-    $sql = "update tbl_admin set full_name='$full_name',username='$username' where id=$id";
+        $sql = "update tbl_admin set full_name='$full_name',username='$username' where id=$id";
 
-    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+        $res = mysqli_query($conn, $sql) or die(mysqli_error());
 
-    if ($res == TRUE) {
-        $_SESSION['update'] = "<div class='success'> Admin Updated Successfully </div>";
-        header('location:' . SITE_URL . 'admin/admin/manage_admin.php');
-    } else {
-        $_SESSION['add'] = "<div class='error'> Failed to Updated Admin: $full_name </div>";
-        header('update:' . SITE_URL . 'admin/admin/update_admin.php');
+        if ($res == TRUE) {
+            $_SESSION['update'] = "<div class='success'> Admin Updated Successfully </div>";
+            header('location:' . SITE_URL . 'admin/admin/manage_admin.php');
+        } else {
+            $_SESSION['add'] = "<div class='error'> Failed to Updated Admin: $full_name </div>";
+            header('update:' . SITE_URL . 'admin/admin/update_admin.php');
+        }
+
     }
-
 }
 
 

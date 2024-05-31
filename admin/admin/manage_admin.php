@@ -27,6 +27,12 @@
                 echo $_SESSION['change_password'];
                 unset($_SESSION['change_password']);
             }
+
+            if (isset($_SESSION['login'])) {
+                echo ' <br> <div class="success">' . $_SESSION['login'] . '</div> <br>';
+                unset($_SESSION['login']);
+            }
+
             ?>
             <br><br>
             <a class="btn btn-primary" href="../admin/add_admin.php"> Create new admin </a>

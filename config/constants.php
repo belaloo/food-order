@@ -2,6 +2,8 @@
 session_start();
 const SITE_URL = 'https://food-order.test/';
 const ADMIN_URL = SITE_URL . 'admin/admin';
+const AUTH_URL = SITE_URL . 'admin/auth';
+const DASHBOARD_URL = SITE_URL . 'admin/dashboard';
 const LOCALHOST = 'localhost';
 const DB_USERNAME = 'root';
 const DB_PASSWORD = '';
