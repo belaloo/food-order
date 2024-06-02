@@ -23,6 +23,7 @@
                 echo $_SESSION['404'];
                 unset($_SESSION['404']);
             }
+
             if (isset($_SESSION['change_password'])) {
                 echo $_SESSION['change_password'];
                 unset($_SESSION['change_password']);
@@ -35,7 +36,7 @@
 
             ?>
             <br><br>
-            <a class="btn btn-primary" href="../admin/add_admin.php"> Create new admin </a>
+            <a class="btn btn-primary" href="<?php echo ADMIN_URL . '/add_category.php' ?>"> Create new Admin </a>
             <br><br>
             <table class="tbl-full">
                 <tr>

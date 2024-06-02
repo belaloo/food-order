@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 
     if ($check_user_name_res and mysqli_num_rows($check_user_name_res)  > 0) {
         $_SESSION['unique'] = "<div class='error'> Username Must Be Unique, Try another one </div>";
-        header('location:' . SITE_URL . 'admin/admin/add_admin.php');
+        header('location:' . SITE_URL . 'admin/admin/add_category.php');
     } else {
 //    Sql query
         $sql = "INSERT INTO tbl_admin set
@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
             header('location:' . SITE_URL . 'admin/admin/manage_admin.php');
         } else {
             $_SESSION['add'] = "<div class='error'> Failed to Add Admin </div>";
-            header('location:' . SITE_URL . 'admin/admin/add_admin.php');
+            header('location:' . SITE_URL . 'admin/admin/add_category.php');
         }
 
     }
